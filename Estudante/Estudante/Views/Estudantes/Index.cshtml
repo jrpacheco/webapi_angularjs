@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style type="text/css">
+    .tablehover {
+        cursor: pointer;
+    }
+</style>
+
+<div class="container">
+    <div class="row" ng-controller="EstudanteController">
+        <div class="collg4 colmd4 colsm6 colxs12">
+            <form>
+                <div class="formgroup">
+                    <label for="Id">
+                        Id
+                    </label>
+                    <input type="text" class="formcontrol" id="Id" placeholder="Id" readonly="readonly" ng-model="Id" />
+                    <div class="formgroup">
+                        <label for="Nome">
+                            Nome
+                        </label>
+                        <input type="text" class="formcontrol" id="Nome" placeholder="Nome do estudante" required ng-model="Nome" />
+                    </div>
+                    <div class="formgroup">
+                        <label for="Sobrenome">
+                            Sobrenome
+                        </label>
+                        <input type="text" class="formcontrol" id="Sobrenome" placeholder="SobreNome" required ng-model="Sobrenome" />
+                    </div>
+                    <div class="formgroup">
+                        <label for="Escola">
+                            Escola
+                        </label>
+                        <input type="text" class="formcontrol" id="Escola" placeholder="Escola" required ng-model="Escola" />
+                    </div>
+                    <div class="formgroup">
+                        <label for="DataNascimento">
+                            Data de nascimento
+                        </label>
+                        <input type="text" class="formcontrol" id="DataNascimento" placeholder="Data de nascimento" required ng-model="DataNascimento" />
+                    </div>
+                    <button type="submit" class="btn btninfo" id="Novo" value="Novo" ng-click="clear()">
+                        Novo
+                    </button>
+                    <button type="submit" class="btn btninfo" id="Salvar" value="Salvar" ng-click="Salvar()">
+                        Salvar
+                    </button>
+                    <button type="submit" class="btn btninfo" id="Delete" value="Delete" ng-click="Delete()">
+                        Delete
+                    </button>
+                    <div class="collg8 colmd8 colsm6 colxs12">
+                        <table class="table tablehover textprimary">
+                            <caption>
+                                Lista de estudante
+                            </caption>
+                            <thead>
+                                <tr>
+                                    <th> Id
+                                    <th> Nome
+                                    <th> Sobrenome
+                                    <th> Escola
+                                    <th> Data de nascimento                                    
+                            </thead>
+                            <tbody ng-repeat="estudante in Estudantes">
+                                <tr ng-click="get(estudante)">
+                                    <td> <span> {{ estudante.Id }}</span>
+                                    <td> <span> {{ estudante.Nome }}</span>
+                                    <td> <span> {{ estudante.Sobrenome }}</span>
+                                    <td> <span> {{ estudante.Escola }}</span>                                    
+                                    <td>
+                                        <span> {{ estudante.DataNascimento }}</span>
+                                        <div class="collg12 colmd12 colsm12 colxs12">
+                                            <span class="textdanger">
+                                                {{ Message }}
+                                            </span>
+                                        </div>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
