@@ -1,4 +1,4 @@
 ﻿var app;
-(function () {
+(function() {    
     app = angular.module("EstudanteModule", []);
-});
+})();
