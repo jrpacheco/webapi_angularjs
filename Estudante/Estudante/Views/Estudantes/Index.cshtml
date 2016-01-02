@@ -16,7 +16,7 @@
                     <label for="Id">
                         Id
                     </label>
-                    <input type="text" class="formcontrol" id="Id" placeholder="Id" readonly="readonly" ng-model="Id" />
+                    <input type="text" class="formcontrol" id="Id" placeholder="Id" ng-model="Id" />
                     <div class="formgroup">
                         <label for="Nome">
                             Nome
@@ -44,13 +44,18 @@
                     <button type="submit" class="btn btninfo" id="Novo" value="Novo" ng-click="clear()">
                         Novo
                     </button>
-                    <button type="submit" class="btn btninfo" id="Salvar" value="Salvar" ng-click="Salvar()">
+                    <button type="submit" class="btn btninfo" id="Salvar" value="Salvar" ng-click="save()">
                         Salvar
                     </button>
-                    <button type="submit" class="btn btninfo" id="Delete" value="Delete" ng-click="Delete()">
+                    <button type="submit" class="btn btninfo" id="Delete" value="Delete" ng-click="delete()">
                         Delete
                     </button>
                     <div class="collg8 colmd8 colsm6 colxs12">
+                        <div class="collg12 colmd12 colsm12 colxs12">
+                            <span class="text-success">
+                                {{ Message }}
+                            </span>
+                        </div>
                         <table class="table tablehover textprimary">
                             <caption>
                                 Lista de estudante
@@ -61,21 +66,15 @@
                                     <th> Nome
                                     <th> Sobrenome
                                     <th> Escola
-                                    <th> Data de nascimento                                    
+                                    <th> Data de nascimento
                             </thead>
                             <tbody ng-repeat="estudante in Estudantes">
                                 <tr ng-click="get(estudante)">
                                     <td> <span> {{ estudante.Id }}</span>
                                     <td> <span> {{ estudante.Nome }}</span>
                                     <td> <span> {{ estudante.Sobrenome }}</span>
-                                    <td> <span> {{ estudante.Escola }}</span>                                    
-                                    <td>
-                                        <span> {{ estudante.DataNascimento }}</span>
-                                        <div class="collg12 colmd12 colsm12 colxs12">
-                                            <span class="textdanger">
-                                                {{ Message }}
-                                            </span>
-                                        </div>
+                                    <td> <span> {{ estudante.Escola }}</span>
+                                    <td> <span> {{ estudante.DataNascimento }}</span>
                             </tbody>
                         </table>
                     </div>
